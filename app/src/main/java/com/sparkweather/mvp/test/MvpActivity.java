@@ -19,6 +19,10 @@ public class MvpActivity extends AppCompatActivity implements MvpView {
 
     private MvpPresenter mvpPresenter;
 
+    public static final String Success = "Success";
+    public static final String Failure = "Failure";
+    public static final String Error = "Error";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,29 +35,45 @@ public class MvpActivity extends AppCompatActivity implements MvpView {
 
         mvpPresenter = new MvpPresenter(this);
     }
-    
+
+    public void getDataForSuccess() {
+        mvpPresenter.getData(Success);
+    }
+
+    public void getDataForFailure() {
+        mvpPresenter.getData(Failure);
+    }
+
+    public void getDataForError() {
+        mvpPresenter.getData(Error);
+    }
+
     @Override
     public void showLoading() {
-
+        if (progressDialog != null && !progressDialog.isShowing()) {
+            progressDialog.show();
+        }
     }
 
     @Override
     public void hideLoading() {
-
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 
     @Override
     public void showData(String data) {
-
+        text.setText(data);
     }
 
     @Override
     public void showFailureMessage(String msg) {
-
+        text.setText(msg);
     }
 
     @Override
     public void showErrorMessage() {
-
+        text.setText("网络请求数据出现异常");
     }
 }

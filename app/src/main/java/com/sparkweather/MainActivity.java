@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.sparkweather.mvp.test.MvpActivity;
 import com.sparkweather.mvp.textspeech.TextSpeechActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TextSpeechActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MvpActivity.class);
                 startActivity(intent);
             }
         });

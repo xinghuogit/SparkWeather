@@ -15,7 +15,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="getData"
+        android:onClick="getDataForSuccess"
         android:text="获取数据【成功】" />
 
     <Button
