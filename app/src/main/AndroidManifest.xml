@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.textspeech.TextSpeechActivity"></activity>
+        <activity android:name=".mvp.test.MvpActivity"></activity>
+
+
     </application>
 
 </manifest>

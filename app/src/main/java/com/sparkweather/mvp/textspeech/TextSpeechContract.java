@@ -1,5 +1,7 @@
 package com.sparkweather.mvp.textspeech;
 
+import android.content.Context;
+
 import com.sparkweather.base.BasePresenter;
 import com.sparkweather.base.BaseView;
 
@@ -10,7 +12,7 @@ import com.sparkweather.base.BaseView;
  */
 public interface TextSpeechContract {
     interface View extends BaseView<Presenter> {
-
+        Context getContext();
     }
 
     interface Presenter extends BasePresenter {
