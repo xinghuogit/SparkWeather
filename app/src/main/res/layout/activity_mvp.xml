@@ -13,18 +13,19 @@
 
 
     <Button
+        android:id="@+id/getDataForSuccess"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="getDataForSuccess"
         android:text="获取数据【成功】" />
 
     <Button
+        android:id="@+id/getDataForFailure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="getDataForFailure"
         android:text="获取数据【失败】" />
 
     <Button
+        android:id="@+id/getDataForError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="getDataForError"

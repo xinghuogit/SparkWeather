@@ -15,13 +15,13 @@ public class MvpModel {
             @Override
             public void run() {
                 switch (param) {
-                    case MvpActivity.Success:
-                        callback.onSuccess("根据参数“" + param + "”的请求网络数据成功");
+                    case MvpFragment.Success:
+                        callback.onSuccess("Fragment根据参数“" + param + "”的请求网络数据成功");
                         break;
-                    case MvpActivity.Failure:
-                        callback.onFailure("根据参数“" + param + "”的请求网络数据成功");
+                    case MvpFragment.Failure:
+                        callback.onFailure("Fragment根据参数“" + param + "”的请求网络数据成功");
                         break;
-                    case MvpActivity.Error:
+                    case MvpFragment.Error:
                         callback.onError();
                         break;
                 }
