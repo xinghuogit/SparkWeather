@@ -1,4 +1,4 @@
-package com.sparkweather.mvp.test.base;
+package com.sparkweather.mvp.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,16 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.sparkweather.base.BaseFragment;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 /**
  * 日期：2019/3/9 11:25
  * 创建：李加蒙
  * 描述：
  */
-public abstract class BaseFragment extends Fragment implements BaseView {
+public abstract class MvpBaseFragment extends BaseFragment implements BaseView {
     protected Context mContext;
     protected View mRootView;
 
@@ -38,13 +39,23 @@ public abstract class BaseFragment extends Fragment implements BaseView {
         super.onViewCreated(view, savedInstanceState);
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
-        initView(view);
-        initData();
+        initPresenter();
+        if (getPresenter() != null) {
+            getPresenter().attachView(this);
+        }
     }
 
-    protected abstract void initView(View view);
+    /**
+     * 获取Presenter实例，子类实现
+     */
+    public abstract BasePresenter getPresenter();
 
-    protected abstract void initData();
+
+    /**
+     * 初始化Presenter的实例，子类实现
+     */
+    public abstract void initPresenter();
+
 
     @Override
     public void showLoading() {
@@ -93,6 +104,14 @@ public abstract class BaseFragment extends Fragment implements BaseView {
     public static class ActivityNotAttachedException extends RuntimeException {
         public ActivityNotAttachedException() {
             super("Fragment has disconnected from Activity ! - -.");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (getPresenter() != null) {
+            getPresenter().detachView();
         }
     }
 }

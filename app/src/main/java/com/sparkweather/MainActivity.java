@@ -1,13 +1,15 @@
 package com.sparkweather;
 
 import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.sparkweather.mvp.test.MvpActivity;
-import com.sparkweather.mvp.textspeech.TextSpeechActivity;
+import com.sparkweather.mvp.MvpActivity;
+import com.sparkweather.mvp.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,17 +17,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TextSpeechActivity.class);
-                startActivity(intent);
-            }
-        });
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MvpActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

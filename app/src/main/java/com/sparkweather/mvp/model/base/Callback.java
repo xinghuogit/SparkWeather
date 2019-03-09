@@ -1,4 +1,4 @@
-package com.sparkweather.mvp.test.base;
+package com.sparkweather.mvp.model.base;
 
 /**
  * 日期：2019/3/9 10:50
