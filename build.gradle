@@ -4,11 +4,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.2'
-        
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -24,4 +24,40 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 28
+    buildToolsVersion = "28.0.3"
+    minSdkVersion = 15
+    targetSdkVersion = 28
+
+    rxJavaVersion = "2.2.7"
+    rxAndroidVersion = "2.1.1"
+    rxLifecycleComponentsVersion = "3.0.0"
+
+    retrofitVersion = "2.5.0"
+    gsonVersion = "2.8.5"
+    converterScalarsVersion = "2.5.0"
+    converterGsonVersion = "2.5.0"
+    adapterRxJava2Version = "2.5.0"
+    persistentCookieJarVersion = "v1.0.0"
+
+    deps = [
+            //*start  rx-android-java*//
+            rxjava               : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxandroid            : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxlifecyclecomponents: "com.trello.rxlifecycle3:rxlifecycle-components:$rxLifecycleComponentsVersion",
+            //*end rx-android-java*//
+
+            //*start retrofit*//
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            gson                 : "com.google.code.gson:gson:$gsonVersion",
+            converterscalars     : "com.squareup.retrofit2:converter-scalars:$converterScalarsVersion",//ConverterFactory的Gson依赖包
+            convertergson        : "com.squareup.retrofit2:converter-gson:$converterGsonVersion",  //ConverterFactory的Gson依赖包
+            adapterrxjava2       : "com.squareup.retrofit2:adapter-rxjava2:$adapterRxJava2Version",//CallAdapterFactory的Rx依赖包
+            //*end retrofit*//
+
+            persistentcookiejar  : "com.github.franmontiel:PersistentCookieJar:$persistentCookieJarVersion",
+    ]
 }

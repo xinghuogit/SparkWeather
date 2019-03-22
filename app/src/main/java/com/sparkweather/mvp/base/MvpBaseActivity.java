@@ -66,6 +66,11 @@ public abstract class MvpBaseActivity<P extends BasePresenter> extends BaseActiv
     }
 
     @Override
+    public void onProgress(long totalSize, long downSize) {
+
+    }
+
+    @Override
     public Context getContext() {
         return MvpBaseActivity.this;
     }

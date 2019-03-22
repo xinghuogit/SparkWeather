@@ -18,11 +18,13 @@ import androidx.annotation.Nullable;
  * 创建：李加蒙
  * 描述：
  */
-public abstract class MvpBaseFragment extends BaseFragment implements BaseView {
+public abstract class MvpBaseFragment<P extends BasePresenter> extends BaseFragment implements BaseView {
     protected Context mContext;
     protected View mRootView;
 
     private ProgressDialog progressDialog;
+
+    public P presenter;
 
     @Nullable
     @Override
@@ -37,29 +39,25 @@ public abstract class MvpBaseFragment extends BaseFragment implements BaseView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        progressDialog = new ProgressDialog(getContext());
-        progressDialog.setCancelable(false);
-        initPresenter();
-        if (getPresenter() != null) {
-            getPresenter().attachView(this);
-        }
+        presenter = createPresenter();
+        initView(view);
+        initData();
     }
 
     /**
      * 获取Presenter实例，子类实现
      */
-    public abstract BasePresenter getPresenter();
-
-
-    /**
-     * 初始化Presenter的实例，子类实现
-     */
-    public abstract void initPresenter();
+    public abstract P createPresenter();
 
 
     @Override
     public void showLoading() {
-        if (progressDialog != null && !progressDialog.isShowing()) {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(getContext());
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("数据请求");
+        }
+        if (!progressDialog.isShowing()) {
             progressDialog.show();
         }
     }
@@ -87,6 +85,13 @@ public abstract class MvpBaseFragment extends BaseFragment implements BaseView {
     }
 
     @Override
+    public void onProgress(long totalSize, long downSize) {
+        if (progressDialog != null) {
+            progressDialog.setMessage(downSize + "/" + totalSize);
+        }
+    }
+
+    @Override
     public Context getContext() {
         checkActivityAttached();
         return getActivity();
@@ -110,8 +115,8 @@ public abstract class MvpBaseFragment extends BaseFragment implements BaseView {
     @Override
     public void onDetach() {
         super.onDetach();
-        if (getPresenter() != null) {
-            getPresenter().detachView();
+        if (presenter != null) {
+            presenter.detachView();
         }
     }
 }

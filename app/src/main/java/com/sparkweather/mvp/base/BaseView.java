@@ -41,6 +41,12 @@ public interface BaseView {
     void onErrorCode(BaseModel model);
 
     /**
+     * @param totalSize 文件总进度
+     * @param downSize  下载进度
+     */
+    void onProgress(long totalSize, long downSize);
+
+    /**
      * @return 上下文 获取上下文
      */
     Context getContext();

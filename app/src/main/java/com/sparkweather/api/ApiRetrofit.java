@@ -32,13 +32,13 @@ public class ApiRetrofit {
     private ApiServer apiServer;
 
     public static ApiRetrofit getInstance() {
-//        if (apiRetrofit == null) {
-//            synchronized (Object.class) {
-//                if (apiRetrofit == null) {
-        apiRetrofit = new ApiRetrofit();
-//                }
-//            }
-//        }
+        if (apiRetrofit == null) {
+            synchronized (Object.class) {
+                if (apiRetrofit == null) {
+                    apiRetrofit = new ApiRetrofit();
+                }
+            }
+        }
         return apiRetrofit;
     }
 

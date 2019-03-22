@@ -40,16 +40,12 @@ public class MvpFragment extends MvpBaseFragment implements MvpView, View.OnClic
         return R.layout.activity_mvp;
     }
 
-    @Override
-    public BasePresenter getPresenter() {
-        return mvpPresenter;
-    }
 
     @Override
-    public void initPresenter() {
-        mvpPresenter = new MvpPresenter(MvpFragment.this);
+    public BasePresenter createPresenter() {
+        return new MvpPresenter(MvpFragment.this);
     }
-
+    
     @Override
     public void initView(View view) {
         text = view.findViewById(R.id.text);

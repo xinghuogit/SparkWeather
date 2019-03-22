@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.sparkweather.mvp.MvpActivity;
+import com.sparkweather.mvp.download.DownloadActivity;
 import com.sparkweather.mvp.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DownloadActivity.class);
                 startActivity(intent);
             }
         });
