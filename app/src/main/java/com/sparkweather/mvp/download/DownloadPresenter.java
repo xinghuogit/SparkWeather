@@ -3,14 +3,17 @@ package com.sparkweather.mvp.download;
 
 import android.annotation.SuppressLint;
 
-import com.sparkweather.api.ApiServer;
-import com.sparkweather.api.BaseObserver;
-import com.sparkweather.mvp.base.BasePresenter;
-import com.sparkweather.utils.FileUtils;
+import com.library.common.utils.StringUtils;
+import com.library.common.api.IApiServer;
+import com.library.common.api.BaseObserver;
+import com.library.common.mvp.base.view.BasePresenter;
+
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Function;
@@ -55,13 +58,13 @@ public class DownloadPresenter extends BasePresenter<DownloadView> {
         Retrofit retrofit = new Retrofit.Builder().client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl("http://download.sdk.mob.com/").build();
-        apiServer = retrofit.create(ApiServer.class);
+        apiServer = retrofit.create(IApiServer.class);
         apiServer
                 .downloadFile(url)
                 .map(new Function<ResponseBody, String>() {
                     @Override
                     public String apply(ResponseBody body) throws Exception {
-                        File file = FileUtils.saveFile(path, body);
+                        File file = saveFile(path, body);
                         return file.getPath();
                     }
                 })
@@ -103,5 +106,50 @@ public class DownloadPresenter extends BasePresenter<DownloadView> {
                 baseView.onError(msg);
             }
         });
+    }
+
+    public static File saveFile(String filePath, ResponseBody body) {
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        File file = null;
+        try {
+            if (StringUtils.isEmpty(filePath)) {
+                return null;
+            }
+            file = new File(filePath);
+            if (file == null || !file.exists()) {
+                file.createNewFile();
+            }
+            long fileSize = body.contentLength();
+            long fileSizeDownload = 0;
+            byte[] fileReader = new byte[4096];
+            inputStream = body.byteStream();
+            outputStream = new FileOutputStream(file);
+            while (true) {
+                int read = inputStream.read(fileReader);
+                if (read == -1) break;
+                outputStream.write(fileReader, 0, read);
+                fileSizeDownload += read;
+            }
+            outputStream.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return file;
     }
 }

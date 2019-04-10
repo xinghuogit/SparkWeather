@@ -3,7 +3,7 @@ package com.sparkweather.mvp.download;
 import android.os.Bundle;
 
 import com.sparkweather.R;
-import com.sparkweather.base.BaseActivity;
+import com.library.common.base.BaseActivity;
 
 import androidx.annotation.Nullable;
 

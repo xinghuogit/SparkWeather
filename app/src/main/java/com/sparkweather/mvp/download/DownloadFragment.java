@@ -6,10 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sparkweather.R;
-import com.sparkweather.mvp.base.BasePresenter;
-import com.sparkweather.mvp.base.MvpBaseFragment;
-import com.sparkweather.mvp.login.LoginPresenter;
-import com.sparkweather.mvp.model.base.BaseModel;
+import com.library.common.mvp.base.view.MvpBaseFragment;
+import com.library.common.mvp.base.model.BaseModel;
 
 import java.io.File;
 

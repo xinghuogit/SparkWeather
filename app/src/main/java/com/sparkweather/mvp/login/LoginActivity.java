@@ -6,8 +6,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.sparkweather.R;
-import com.sparkweather.mvp.base.MvpBaseActivity;
-import com.sparkweather.mvp.model.base.BaseModel;
+import com.library.common.mvp.base.view.MvpBaseActivity;
+import com.library.common.mvp.base.model.BaseModel;
 
 import androidx.annotation.Nullable;
 

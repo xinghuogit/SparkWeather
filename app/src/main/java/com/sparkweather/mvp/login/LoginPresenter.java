@@ -1,7 +1,7 @@
 package com.sparkweather.mvp.login;
 
-import com.sparkweather.api.BaseObserver;
-import com.sparkweather.mvp.base.BasePresenter;
+import com.library.common.api.BaseObserver;
+import com.library.common.mvp.base.view.BasePresenter;
 
 /**
  * 日期：2019/3/9 16:44

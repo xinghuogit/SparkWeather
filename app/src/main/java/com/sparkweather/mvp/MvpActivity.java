@@ -3,10 +3,9 @@ package com.sparkweather.mvp;
 import android.os.Bundle;
 
 import com.sparkweather.R;
-import com.sparkweather.mvp.base.BasePresenter;
-import com.sparkweather.mvp.base.MvpBaseActivity;
-import com.sparkweather.mvp.model.base.BaseModel;
-import com.sparkweather.mvp.MvpPresenter;
+import com.library.common.mvp.base.view.BasePresenter;
+import com.library.common.mvp.base.view.MvpBaseActivity;
+import com.library.common.mvp.base.model.BaseModel;
 
 import androidx.annotation.Nullable;
 

@@ -6,10 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sparkweather.R;
-import com.sparkweather.base.BaseFragment;
-import com.sparkweather.mvp.base.BasePresenter;
-import com.sparkweather.mvp.base.MvpBaseFragment;
-import com.sparkweather.mvp.model.base.BaseModel;
+import com.library.common.mvp.base.view.BasePresenter;
+import com.library.common.mvp.base.view.MvpBaseFragment;
+import com.library.common.mvp.base.model.BaseModel;
 
 import java.util.Locale;
 

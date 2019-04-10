@@ -4,11 +4,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-
+        mavenCentral() // add repository
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.2'
-
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -19,6 +19,7 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        mavenCentral() // add repository
     }
 }
 
@@ -43,6 +44,10 @@ ext {
     adapterRxJava2Version = "2.5.0"
     persistentCookieJarVersion = "v1.0.0"
 
+    loggerVersion = "2.2.0"
+
+    greendaoVersion = "3.2.2"
+
     deps = [
             //*start  rx-android-java*//
             rxjava               : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
@@ -59,5 +64,8 @@ ext {
             //*end retrofit*//
 
             persistentcookiejar  : "com.github.franmontiel:PersistentCookieJar:$persistentCookieJarVersion",
+
+            logger               : "com.orhanobut:logger:$loggerVersion",
+            greendao             : "org.greenrobot:greendao:$greendaoVersion",
     ]
 }

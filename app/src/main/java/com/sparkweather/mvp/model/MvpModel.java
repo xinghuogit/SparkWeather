@@ -3,8 +3,8 @@ package com.sparkweather.mvp.model;
 import android.os.Handler;
 
 import com.sparkweather.mvp.MvpFragment;
-import com.sparkweather.mvp.model.base.BaseModel;
-import com.sparkweather.mvp.model.base.Callback;
+import com.library.common.mvp.base.model.BaseModel;
+import com.library.common.mvp.base.model.Callback;
 
 
 /**

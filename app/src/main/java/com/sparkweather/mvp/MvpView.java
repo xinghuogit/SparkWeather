@@ -1,7 +1,7 @@
 package com.sparkweather.mvp;
 
 
-import com.sparkweather.mvp.base.BaseView;
+import com.library.common.mvp.base.view.BaseView;
 
 /**
  * 日期：2019/3/8 20:23

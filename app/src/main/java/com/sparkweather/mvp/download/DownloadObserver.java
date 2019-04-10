@@ -1,13 +1,11 @@
 package com.sparkweather.mvp.download;
 
-import com.sparkweather.api.BaseObserver;
-import com.sparkweather.mvp.base.BaseView;
-import com.sparkweather.utils.FileUtils;
-import com.sparkweather.utils.StringUtils;
+import com.library.common.utils.FileUtils;
+import com.library.common.utils.StringUtils;
+import com.library.common.api.BaseObserver;
+import com.library.common.mvp.base.view.BaseView;
 
 import java.io.File;
-
-import okhttp3.ResponseBody;
 
 /**
  * 日期：2019/3/11 11:35
@@ -37,12 +35,12 @@ public abstract class DownloadObserver extends BaseObserver<String> {
 
     @Override
     public void onComplete() {
-       super.onComplete();
+        super.onComplete();
     }
 
     @Override
     public void onNext(String responseBody) {
-        if (StringUtils.isE(responseBody)) {
+        if (StringUtils.isEmpty(responseBody)) {
             onSuccess(FileUtils.getFile(responseBody));
         } else {
             onErrorMsg("file is null or file not exists");

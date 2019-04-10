@@ -1,8 +1,8 @@
 package com.sparkweather.mvp;
 
-import com.sparkweather.mvp.base.BasePresenter;
-import com.sparkweather.mvp.model.base.Callback;
-import com.sparkweather.mvp.model.base.DataModel;
+import com.library.common.mvp.base.view.BasePresenter;
+import com.library.common.mvp.base.model.Callback;
+import com.library.common.mvp.base.model.DataModel;
 import com.sparkweather.mvp.model.MvpModel;
 
 

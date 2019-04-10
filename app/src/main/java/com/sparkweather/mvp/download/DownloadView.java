@@ -1,6 +1,6 @@
 package com.sparkweather.mvp.download;
 
-import com.sparkweather.mvp.base.BaseView;
+import com.library.common.mvp.base.view.BaseView;
 
 import java.io.File;
 
