@@ -140,4 +140,7 @@ public class LogUtils {
         }
     }
 
+    public static void json(String tag, String json) {
+        Logger.t(tag).json(json);
+    }
 }

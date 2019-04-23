@@ -5,6 +5,7 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         LogUtils.i(TAG, "info");
         LogUtils.w(TAG, "warn");
         LogUtils.e(TAG, "error");
+
+        Log.i(TAG, "onCreate: ");
+        Logger.i("onCreate");
+        Logger.i("onCreate", TAG);
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override

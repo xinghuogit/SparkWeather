@@ -2,7 +2,10 @@ package com.library.common;
 
 import com.library.common.utils.DateUtils;
 
+import java.text.DecimalFormat;
 import java.util.TimeZone;
+
+
 
 /**
  * 日期：2019/4/3 16:12
@@ -10,7 +13,11 @@ import java.util.TimeZone;
  * 描述：
  */
 public class MyClass {
+
     public static void main(String[] args) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        System.out.println(df.format(0.25555));
+        System.out.println(System.currentTimeMillis());
         System.out.println(System.currentTimeMillis());
         System.out.println(TimeZone.getDefault().getRawOffset());
         System.out.println(DateUtils.getTodayStartTime(0));

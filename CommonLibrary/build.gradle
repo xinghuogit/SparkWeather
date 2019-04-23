@@ -1,11 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -19,16 +20,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
-//    implementation 'com.android.support:appcompat-v7:28.0.0'
-
+    //    implementation 'com.android.support:appcompat-v7:28.0.0'
+    api project(':CommonLibrary:okgo')
+    api project(':CommonLibrary:okrx')
+    api project(':CommonLibrary:okrx2')
+    api project(':CommonLibrary:okserver')
+    api project(':CommonLibrary:logger')
     /*rx-android-java*/
-    api deps.rxjava
-    api deps.rxandroid
+    //    api deps.rxjava2
+    api deps.rxandroid2
     //    api 'com.tbruyelle.rxpermissions2:rxpermissions:+'
     api deps.rxlifecyclecomponents
     /*retrofit*/
@@ -38,6 +42,6 @@ dependencies {
     api deps.convertergson
     api deps.adapterrxjava2
     api deps.persistentcookiejar
-    api deps.logger
+//    api deps.logger
     api deps.greendao
 }

@@ -3,11 +3,20 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CommonLibrary" />
+            <option value="$PROJECT_DIR$/CommonLibrary/logger" />
+            <option value="$PROJECT_DIR$/CommonLibrary/okgo" />
+            <option value="$PROJECT_DIR$/CommonLibrary/okrx" />
+            <option value="$PROJECT_DIR$/CommonLibrary/okrx2" />
+            <option value="$PROJECT_DIR$/CommonLibrary/okserver" />
+            <option value="$PROJECT_DIR$/app" />
+          </set>
+        </option>
         <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>

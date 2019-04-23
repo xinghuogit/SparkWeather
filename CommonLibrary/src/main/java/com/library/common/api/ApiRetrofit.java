@@ -2,6 +2,8 @@ package com.library.common.api;
 
 import android.util.Log;
 
+import com.library.common.utils.LogUtils;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -59,6 +61,7 @@ public class ApiRetrofit {
             Log.e(TAG, "| request.url()：" + request.url());
             Log.e(TAG, "| " + request.toString() + request.headers().toString());
             Log.e(TAG, "| Response:" + content);
+            LogUtils.json(TAG, content);
             Log.e(TAG, "----------Request End:" + duration + "毫秒----------");
             return response.newBuilder()
                     .body(ResponseBody.create(mediaType, content))

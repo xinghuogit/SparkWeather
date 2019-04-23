@@ -21,6 +21,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        Logger.addLogAdapter(new AndroidLogAdapter());
         AppConfig.initFilesDir();
 //        Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler());
     }
