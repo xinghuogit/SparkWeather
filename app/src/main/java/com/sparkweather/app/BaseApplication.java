@@ -22,7 +22,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         instance = this;
         Logger.addLogAdapter(new AndroidLogAdapter());
-        AppConfig.initFilesDir();
+        AppConfig.initFilesDir();//
 //        Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler());
     }
 }
